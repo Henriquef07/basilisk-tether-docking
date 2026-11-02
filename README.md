@@ -10,7 +10,7 @@ The tip mass is propagated kinematically; physical tether dynamics and contact m
 
 ## Project Files
 
-- `tipMassDociking.py`: main simulation script, including diagnostic plots.
+- `tetherDociking.py`: main simulation script, including diagnostic plots.
 - `config.xml`: spacecraft, controller, observer, and noise parameters.
 - `src/fswAlgorithms/dockingGNC`: includes the custom C++ estimation, safety-filtering, and prediction algorithms.
 

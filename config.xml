@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SimulationConfig>
+    <!-- Physical Spacecraft Properties -->
+    <SpacecraftProperties>
+        <Servicer>
+            <Mass>100.0</Mass>
+            <Inertia>900.0, 0.0, 0.0, 0.0, 800.0, 0.0, 0.0, 0.0, 600.0</Inertia>
+            <DockingPortL>1.2</DockingPortL>
+        </Servicer>
+        <Chief>
+            <Mass>350.0</Mass>
+            <Inertia>600.0, 0.0, 0.0, 0.0, 650.0, 0.0, 0.0, 0.0, 450.0</Inertia>
+            <DockingPortL>1.2</DockingPortL>
+        </Chief>
+        <TipMass>
+            <Mass>1.0</Mass>
+            <Radius>0.1</Radius>
+            <Height>0.05</Height>
+            <ForceImpact>10.0</ForceImpact>
+            <TimeContact>0.1</TimeContact>
+            <TipOffset>0.1</TipOffset>
+            <CapturePosTol>0.3</CapturePosTol>
+            <CaptureVelTol>0.1</CaptureVelTol>
+        </TipMass>
+    </SpacecraftProperties>
+
+    <!-- General MPC and Phase Control Variables -->
+    <ControllerVariables>
+        <MaxThrust>20</MaxThrust>
+        <StepTime>2</StepTime>
+        <!-- N_horizon = HorizonTime / StepTime -->
+        <HorizonTime>40</HorizonTime> 
+        <StandoffDistance>5.0</StandoffDistance>
+        <HoldDistance>8.0</HoldDistance>
+        <ApproachSpeed>0.05</ApproachSpeed>
+        <TerminalBoxPos>0.4</TerminalBoxPos>
+        <TerminalBoxVel>0.2</TerminalBoxVel>
+        <ConfidenceWindow>20</ConfidenceWindow>
+        <ConfidenceFraction>0.7</ConfidenceFraction>
+        <HkThreshold>3.0</HkThreshold>
+    </ControllerVariables>
+
+    <!-- Control Barrier Function settings -->
+    <CBFVariables>
+        <Enabled>True</Enabled>
+        <PTarget>0.0, 0.0, 0.0</PTarget>
+        <Gamma>10.0</Gamma>
+        <MaxIterations>30</MaxIterations>
+    </CBFVariables>
+
+    <!-- State estimation and sensor noise boundaries -->
+    <NoiseObserverVariables>
+        <!-- CONSERVATIVE BASELINE -->
+        <SvoHorizon>3</SvoHorizon>
+        <VMaxVal>0.05</VMaxVal>
+        <WMaxVal>0.05</WMaxVal>
+        <WMaxSvo>0.0025</WMaxSvo>
+
+        <PMatrixPosVar>0.001</PMatrixPosVar>
+        <PMatrixMrpVar>1e-5</PMatrixMrpVar>
+        <PMatrixRateVar>1e-5</PMatrixRateVar>
+        <PMatrixVelVar>0.001</PMatrixVelVar>
+        
+        <WalkBoundsPos>0.02</WalkBoundsPos>
+        <WalkBoundsVel>0.02</WalkBoundsVel>
+        <WalkBoundsMrp>1e-3</WalkBoundsMrp>
+        <WalkBoundsRate>1e-4</WalkBoundsRate>
+    </NoiseObserverVariables>
+</SimulationConfig>

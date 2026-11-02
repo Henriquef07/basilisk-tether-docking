@@ -1,0 +1,12 @@
+pandas
+matplotlib
+numpy
+scipy
+colorama
+tqdm
+pillow
+requests
+bokeh
+protobuf
+pooch
+sgp4
